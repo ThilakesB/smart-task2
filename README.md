@@ -37,16 +37,17 @@ A modern, responsive, production-ready React web application to manage tasks and
 
 ---
 
-## Folder Structure
+### Folder Structure
 
 ```
 src/
 ├── components/
 │   ├── layout/
-│   │   ├── Header.jsx          # Top-bar containing brand, SearchBar, and ThemeToggle
-│   │   └── MainLayout.jsx      # Overall container layout
+│   │   └── MainLayout.jsx      # Left sidebar navigation, greeting header, and initials avatar
 │   ├── dashboard/
-│   │   └── SummaryCard.jsx     # Analytics stats widgets & progress bar
+│   │   ├── SummaryCard.jsx     # Analytics stats widgets & progress bar
+│   │   ├── ContributionGrid.jsx # GitHub-style 53-week activity calendar
+│   │   └── HomeView.jsx        # Landing dashboard overview with summary metrics and task tables
 │   ├── tasks/
 │   │   ├── TaskList.jsx        # Orchestrates tasks panel & creation triggers
 │   │   ├── TaskItem.jsx        # Individual tasks render & validation
@@ -74,13 +75,13 @@ src/
 │   ├── DashboardContext.jsx    # Central useReducer store for tasks and notes lists
 │   └── ToastContext.jsx        # Accessible aria-live global toast manager
 ├── utils/
-│   └── date.js                 # Overdue checkers and readable formatters
+│   └── date.js                 # Overdue checkers, timezone-safe dates, and formatters
 ├── styles/
 │   ├── variables.css           # Brand palettes, HSL scales, light/dark themes
 │   ├── global.css              # Baseline resets and custom focus rings
-│   ├── components.css          # Core layouts, cards, modals, custom checkboxes
+│   ├── components.css          # Core layouts, sidebar, tables, calendar, and modals
 │   └── animations.css          # CSS Keyframes for slide, fade, check, and shake
-├── App.jsx                     # Top level component declaring providers and laying elements
+├── App.jsx                     # Top level component declaring providers and tab routing
 ├── index.css                   # Aggregates CSS import packages
 └── main.jsx                    # React entry file
 ```
@@ -89,13 +90,16 @@ src/
 
 ## Core Features
 
-1. **Productivity Analytics Dashboard**: Displays total, completed, pending, and overdue counts alongside a dynamic completion progress tracker bar.
-2. **Task Board**: Custom forms to add, edit, and delete task cards. Supports description detail text, due dates, priority tags (Low/Medium/High), and custom category tags. High priority and overdue tasks are visually highlighted.
-3. **Sticky Notes**: Fast note creation utilizing a grid layout. Supports customizable sticky background colors (Yellow, Blue, Green, Pink, Purple, Orange) matching light/dark styles.
-4. **Unified Search System**: Search tasks, notes, or tags simultaneously. Debounced to prevent layout lag.
-5. **Advanced Task Filtering & Sorting**: Group tasks by status, urgency, or category tags. Sort ascending/descending by due date, priority, or creation date.
-6. **Dark & Light Mode switch**: Defaults automatically to system preference (`prefers-color-scheme`) and persists user choices.
-7. **Accessibility First Design**: Modal overlays use keyboard focus trapping, Esc close handlers, and restore focus to trigger buttons. Deletions are secured behind confirmation prompts. System triggers accessibility-compliant `aria-live` toasts for CRUD actions.
+1. **Premium Sidebar Workspace** (Mockup-aligned): Clean left-hand navigation panel separating Home, Task management, and Notes canvases, with an adaptive design collapsing into a top header on mobile.
+2. **Productivity Analytics Dashboard**: Displays total, completed, pending, and overdue counts alongside a dynamic completion progress tracker bar.
+3. **Contributions Streaks Calendar**: A GitHub-style 53-week activity calendar grid aggregating task creation, task completions, and sticky note additions over the last 365 days. Cells automatically stretch to fill the screen while maintaining perfect square shapes.
+4. **Recent Tasks Table**: A transaction-style table list on the Home tab displaying task details with quick action controls.
+5. **Task Board**: Custom forms to add, edit, and delete task cards. Supports description detail text, due dates, priority tags (Low/Medium/High), and custom category tags. High priority and overdue tasks are visually highlighted.
+6. **Sticky Notes**: Fast note creation utilizing a masonry grid layout. Supports customizable sticky background colors (Yellow, Blue, Green, Pink, Purple, Orange) matching light/dark styles.
+7. **Unified Search System**: Search tasks, notes, or tags simultaneously. Debounced to prevent layout lag.
+8. **Advanced Task Filtering & Sorting**: Group tasks by status, urgency, or category tags. Sort ascending/descending by due date, priority, or creation date.
+9. **Dark & Light Mode switch**: Defaults automatically to system preference (`prefers-color-scheme`) and persists user choices.
+10. **Accessibility First Design**: Modal overlays use keyboard focus trapping, Esc close handlers, and restore focus to trigger buttons. Deletions are secured behind confirmation prompts. System triggers accessibility-compliant `aria-live` toasts for CRUD actions.
 
 ---
 
