@@ -5,6 +5,7 @@ import { MainLayout } from './components/layout/MainLayout';
 import { SummaryCard, ProgressTracker } from './components/dashboard/SummaryCard';
 import { TaskList } from './components/tasks/TaskList';
 import { NoteList } from './components/notes/NoteList';
+import { ContributionGrid } from './components/dashboard/ContributionGrid';
 import { isOverdue } from './utils/date';
 
 function DashboardContent() {
@@ -85,6 +86,9 @@ function DashboardContent() {
           />
           <ProgressTracker completed={completedTasks} total={totalTasks} />
         </section>
+
+        {/* Contribution Activity Grid */}
+        <ContributionGrid />
 
         {/* Dynamic Column Viewports */}
         <div className="dashboard-main">

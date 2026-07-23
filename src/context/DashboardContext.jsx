@@ -34,9 +34,17 @@ function dashboardReducer(state, action) {
     case 'TOGGLE_TASK':
       return {
         ...state,
-        tasks: state.tasks.map((task) =>
-          task.id === action.payload ? { ...task, completed: !task.completed } : task
-        ),
+        tasks: state.tasks.map((task) => {
+          if (task.id === action.payload) {
+            const nextCompleted = !task.completed;
+            return {
+              ...task,
+              completed: nextCompleted,
+              completedAt: nextCompleted ? new Date().toISOString() : null,
+            };
+          }
+          return task;
+        }),
       };
 
     // Notes actions
