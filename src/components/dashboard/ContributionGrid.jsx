@@ -145,17 +145,6 @@ export function ContributionGrid() {
 
       <div className="contribution-grid-scroll">
         <div className="contribution-grid-wrapper">
-          {/* Day Labels Column */}
-          <div className="contribution-labels-days" aria-hidden="true">
-            <span></span> {/* spacer */}
-            <span>Mon</span>
-            <span></span>
-            <span>Wed</span>
-            <span></span>
-            <span>Fri</span>
-            <span></span>
-          </div>
-
           <div className="contribution-calendar-container">
             {/* Month labels at top */}
             <div className="contribution-labels-months" aria-hidden="true">
@@ -172,31 +161,45 @@ export function ContributionGrid() {
               ))}
             </div>
 
-            {/* Grid Columns representing weeks */}
-            <div className="contribution-calendar" role="grid" aria-label="Task and note contributions calendar">
-              {calendarData.map((week, wIndex) => (
-                <div className="contribution-column" key={wIndex} role="row">
-                  {week.map((day, dIndex) => {
-                    const readableDate = formatDate(day.dateStr);
-                    const labelText = day.isFuture
-                      ? 'Future date'
-                      : `${day.count} contribution${day.count === 1 ? '' : 's'} on ${readableDate}`;
+            {/* Day labels + Grid Columns row */}
+            <div className="contribution-calendar-row">
+              {/* Day Labels Column */}
+              <div className="contribution-labels-days" aria-hidden="true">
+                <span></span>
+                <span>Mon</span>
+                <span></span>
+                <span>Wed</span>
+                <span></span>
+                <span>Fri</span>
+                <span></span>
+              </div>
 
-                    return (
-                      <div
-                        key={dIndex}
-                        className={`contribution-cell level-${day.level}`}
-                        title={labelText}
-                        aria-label={labelText}
-                        role="gridcell"
-                        style={{
-                          visibility: day.isFuture ? 'hidden' : 'visible',
-                        }}
-                      />
-                    );
-                  })}
-                </div>
-              ))}
+              {/* Grid Columns representing weeks */}
+              <div className="contribution-calendar" role="grid" aria-label="Task and note contributions calendar">
+                {calendarData.map((week, wIndex) => (
+                  <div className="contribution-column" key={wIndex} role="row">
+                    {week.map((day, dIndex) => {
+                      const readableDate = formatDate(day.dateStr);
+                      const labelText = day.isFuture
+                        ? 'Future date'
+                        : `${day.count} contribution${day.count === 1 ? '' : 's'} on ${readableDate}`;
+
+                      return (
+                        <div
+                          key={dIndex}
+                          className={`contribution-cell level-${day.level}`}
+                          title={labelText}
+                          aria-label={labelText}
+                          role="gridcell"
+                          style={{
+                            visibility: day.isFuture ? 'hidden' : 'visible',
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
