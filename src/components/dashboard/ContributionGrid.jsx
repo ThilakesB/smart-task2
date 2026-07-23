@@ -139,7 +139,7 @@ export function ContributionGrid() {
     <div className="contribution-section animate-fade-in" aria-label="Contributions calendar panel">
       <div className="contribution-header">
         <h3 className="contribution-heading">
-          {totalContributions} contributions in the last year
+          Contributions Streaks ({totalContributions} in the last year)
         </h3>
       </div>
 
