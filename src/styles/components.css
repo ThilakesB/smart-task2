@@ -1,6 +1,7 @@
 /* Layout & Structure */
 .app-container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   padding: var(--spacing-md);
   display: flex;
@@ -58,23 +59,10 @@
   gap: var(--spacing-md);
 }
 
-/* Dashboard Summary Cards Grid */
 .dashboard-summary {
   display: grid;
-  grid-template-cols: 1fr;
+  grid-template-cols: repeat(auto-fit, minmax(150px, 1fr));
   gap: var(--spacing-sm);
-}
-
-@media (min-width: 640px) {
-  .dashboard-summary {
-    grid-template-cols: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .dashboard-summary {
-    grid-template-cols: repeat(5, 1fr); /* 5 cols on large screen to fit notes stats cleanly */
-  }
 }
 
 .summary-card {
@@ -182,7 +170,7 @@
   gap: var(--spacing-xl);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .dashboard-main {
     grid-template-cols: 1.2fr 1fr; /* Clean layout balance */
     align-items: start;
