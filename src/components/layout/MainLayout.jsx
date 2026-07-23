@@ -3,8 +3,8 @@ import { SearchBar } from '../common/SearchBar';
 import { ThemeToggle } from '../common/ThemeToggle';
 
 export function MainLayout({ activeTab, onTabChange, children }) {
-  // Simple Initials Avatar "UT" for User Tasker
-  const avatarInitials = "UT";
+  // Simple Initials Avatar "T" for Thilakeswaran
+  const avatarInitials = "T";
 
   return (
     <div className="app-workspace-container">
@@ -90,7 +90,7 @@ export function MainLayout({ activeTab, onTabChange, children }) {
         {/* Top Header Bar */}
         <header className="viewport-header animate-fade-in">
           <div className="viewport-header-greeting">
-            <h1 className="greeting-title">Hello, Dmytro</h1>
+            <h1 className="greeting-title">Hi, Thilakeswaran</h1>
             <p className="greeting-subtitle">Here is your current productivity overview.</p>
           </div>
           
