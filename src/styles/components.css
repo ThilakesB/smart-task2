@@ -1067,3 +1067,413 @@
 .contribution-legend span {
   padding: 0 3px;
 }
+
+/* Redesigned Workspace Layout (Mockup-Aligned) */
+.app-workspace-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-app);
+  width: 100%;
+}
+
+/* 1. Left Sidebar Navigation */
+.app-sidebar {
+  width: 250px;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg) var(--spacing-md);
+  flex-shrink: 0;
+  z-index: 100;
+  justify-content: space-between;
+}
+
+.sidebar-brand-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-md) var(--spacing-xs);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-brand-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.sidebar-nav {
+  margin-top: var(--spacing-lg);
+  flex: 1;
+}
+
+.sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.sidebar-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.sidebar-link:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+/* High contrast active navigation tags (mockup-aligned) */
+.sidebar-link.active {
+  background-color: var(--primary);
+  color: var(--primary-text);
+}
+
+.sidebar-link.active svg {
+  color: var(--primary-text);
+}
+
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.sidebar-theme-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-label-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.sidebar-footer-tag {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* 2. Main Viewport Panel Layout */
+.app-main-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.viewport-header {
+  height: 80px;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-surface);
+  flex-shrink: 0;
+}
+
+.viewport-header-greeting {
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 0;
+  color: var(--text-primary);
+}
+
+.greeting-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.viewport-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.user-profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 1.5px solid var(--border-color);
+  user-select: none;
+}
+
+.viewport-content {
+  flex: 1;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+/* 3. Home View Layout */
+.home-view-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+.home-row-1 {
+  display: grid;
+  grid-template-cols: 1.7fr 1fr;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+.home-card-calendar {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-card-analytics {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  justify-content: space-between;
+}
+
+.analytics-card-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--spacing-xs);
+}
+
+.analytics-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.quick-actions-card {
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.quick-actions-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+
+.quick-actions-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* 4. Recent Tasks Table (aligned to mockup) */
+.recent-tasks-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.recent-tasks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: var(--spacing-xs);
+}
+
+.recent-tasks-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.recent-tasks-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.recent-tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.recent-tasks-table th {
+  padding: var(--spacing-sm);
+  border-bottom: 1.5px solid var(--border-color);
+  color: var(--text-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+}
+
+.recent-tasks-table td {
+  padding: var(--spacing-md) var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.recent-tasks-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.recent-tasks-table tbody tr:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.recent-tasks-table tr.completed-row {
+  opacity: 0.7;
+}
+
+.table-task-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.table-task-title.strike {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.table-date {
+  font-weight: 550;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.table-date.overdue-text {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.table-date-none {
+  color: var(--text-muted);
+}
+
+.table-actions {
+  display: flex;
+  gap: 2px;
+  justify-content: flex-end;
+}
+
+/* 5. Responsive Design Overrides */
+@media (max-width: 1023px) {
+  .home-row-1 {
+    grid-template-cols: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .app-workspace-container {
+    flex-direction: column;
+  }
+
+  .app-sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: row;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .sidebar-brand-section {
+    border-bottom: none;
+    padding: 0;
+  }
+
+  .sidebar-nav {
+    margin-top: 0;
+    flex: none;
+  }
+
+  .sidebar-nav-list {
+    flex-direction: row;
+    gap: var(--spacing-xs);
+  }
+
+  .sidebar-link {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+  .app-main-viewport {
+    height: auto;
+  }
+
+  .viewport-header {
+    height: auto;
+    padding: var(--spacing-md);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+
+  .viewport-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-container {
+    max-width: 100%;
+  }
+
+  .viewport-content {
+    padding: var(--spacing-md);
+  }
+}
